@@ -2,6 +2,7 @@ import React from "react";
 import { GetStaticProps } from "next";
 
 import { Project } from "../project/types";
+import api from "../project/api";
 
 // types
 interface Props {
@@ -14,9 +15,11 @@ const IndexRoute: React.FC<Props> = () => {
 
 // using getStaticProps from NextJS
 export const getStaticProps: GetStaticProps = async () => {
+  const projects = await api.list();
+
   return {
     props: {
-      projects: [],
+      projects,
     },
   };
 };
