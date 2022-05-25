@@ -1,9 +1,24 @@
 import React from "react";
+import { GetStaticProps } from "next";
 
-interface Props {}
+import { Project } from "../project/types";
 
-const IndexRoute: React.FC<Props> = ({ children }) => {
+// types
+interface Props {
+  projects: Project[];
+}
+
+const IndexRoute: React.FC<Props> = () => {
   return <div>{`<IndexRoute />`}</div>;
+};
+
+// using getStaticProps from NextJS
+export const getStaticProps: GetStaticProps = async () => {
+  return {
+    props: {
+      projects: [],
+    },
+  };
 };
 
 export default IndexRoute;
