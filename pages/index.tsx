@@ -9,8 +9,8 @@ interface Props {
   projects: Project[];
 }
 
-const IndexRoute: React.FC<Props> = () => {
-  return <div>{`<IndexRoute />`}</div>;
+const IndexRoute: React.FC<Props> = ({ projects }) => {
+  return <div>{JSON.stringify(projects)}</div>;
 };
 
 // using getStaticProps from NextJS
