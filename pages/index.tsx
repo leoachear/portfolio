@@ -22,7 +22,7 @@ const IndexRoute: React.FC<Props> = ({ projects }) => {
   return (
     <Box p="6">
       <Heading as="h2">Projects</Heading>
-      <Grid templateColumns="repeat(auto-fill, minmax(240px, 1fr))" gridGap="6">
+      <Grid templateColumns="repeat(auto-fill, minmax(360px, 1fr))" gridGap="6">
         {projects.map((project) => {
           return (
             <Stack
@@ -31,8 +31,12 @@ const IndexRoute: React.FC<Props> = ({ projects }) => {
               key={project.id}
               backgroundColor="gray.100"
               spacing={5}
+              boxShadow={"2xl"}
+              rounded={"md"}
             >
-              <Image src={project.image} alt={project.title} />
+              <Box bg={"gray.100"} mt={-4} mx={-4} mb={0} pos={"relative"}>
+                <Image src={project.image} alt={project.title} />
+              </Box>
               <Heading as="h3" size="md">
                 {project.title}
               </Heading>
