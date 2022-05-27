@@ -13,6 +13,8 @@ import {
   Text,
 } from "@chakra-ui/react";
 
+import Hero from "../Hero/hero";
+
 // types
 interface Props {
   projects: Project[];
@@ -20,44 +22,56 @@ interface Props {
 
 const IndexRoute: React.FC<Props> = ({ projects }) => {
   return (
-    <Box p="6">
-      <Heading as="h2">Projects</Heading>
-      <Grid templateColumns="repeat(auto-fill, minmax(360px, 1fr))" gridGap="6">
-        {projects.map((project) => {
-          return (
-            <Stack
-              borderRadius="md"
-              padding={4}
-              key={project.id}
-              backgroundColor="gray.100"
-              spacing={5}
-              boxShadow={"2xl"}
-              rounded={"md"}
-            >
-              <Box bg={"gray.100"} mt={-4} mx={-4} mb={0} pos={"relative"}>
-                <Image src={project.image} alt={project.title} />
-              </Box>
-              <Heading as="h3" size="md">
-                {project.title}
-              </Heading>
-              <Stack spacing={1}>
-                <Heading as="h4" size="sm">
-                  Description:
+    <>
+      {/* //----------- hero section */}
+      <Box p="6">
+        <Hero></Hero>
+      </Box>
+      {/* //----------- end hero section */}
+      {/* //----------- projects section */}
+      <Box p="6">
+        <Heading as="h2">Projects</Heading>
+        <Grid
+          templateColumns="repeat(auto-fill, minmax(360px, 1fr))"
+          gridGap="6"
+        >
+          {projects.map((project) => {
+            return (
+              <Stack
+                borderRadius="md"
+                padding={4}
+                key={project.id}
+                backgroundColor="gray.100"
+                spacing={5}
+                boxShadow={"2xl"}
+                rounded={"md"}
+              >
+                <Box bg={"gray.100"} mt={-4} mx={-4} mb={0} pos={"relative"}>
+                  <Image src={project.image} alt={project.title} />
+                </Box>
+                <Heading as="h3" size="md">
+                  {project.title}
                 </Heading>
-                <Text>{project.description}</Text>
-                <Heading as="h4" size="sm">
-                  Tech stack:
-                </Heading>
-                <Text fontSize="sm" fontWeight="500" color="primary.500">
-                  {project.technologies}
-                </Text>
+                <Stack spacing={1}>
+                  <Heading as="h4" size="sm">
+                    Description:
+                  </Heading>
+                  <Text>{project.description}</Text>
+                  <Heading as="h4" size="sm">
+                    Tech stack:
+                  </Heading>
+                  <Text fontSize="sm" fontWeight="500" color="primary.500">
+                    {project.technologies}
+                  </Text>
+                </Stack>
+                <Button colorScheme="primary">See more...</Button>
               </Stack>
-              <Button colorScheme="primary">See more...</Button>
-            </Stack>
-          );
-        })}
-      </Grid>
-    </Box>
+            );
+          })}
+        </Grid>
+      </Box>
+      {/* //----------- end projects section */}
+    </>
   );
 };
 
