@@ -1,7 +1,9 @@
 import React from "react";
 
 import {
+  Box,
   Button,
+  Center,
   Flex,
   Heading,
   Image,
@@ -12,9 +14,9 @@ import {
 
 export default function Hero() {
   return (
-    <Stack direction={{ base: "column", md: "row" }}>
-      <Flex p={8} flex={1} align={"center"} justify={"center"}>
-        <Stack spacing={6} w={"full"} maxW={"lg"}>
+    <Flex direction={{ base: "column", md: "row" }}>
+      <Box flex={2}>
+        <Stack spacing={6} w={"full"}>
           <Heading fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}>
             <Text
               as={"span"}
@@ -30,7 +32,7 @@ export default function Hero() {
                 zIndex: -1,
               }}
             >
-              FrontEnd Web Developer
+              Frontend Web Developer
             </Text>
             <br />{" "}
             <Text color={"blue.400"} as={"span"}>
@@ -55,15 +57,17 @@ export default function Hero() {
             <Button rounded={"full"}>How It Works</Button>
           </Stack>
         </Stack>
-      </Flex>
-      <Flex flex={1}>
-        <Image
-          alt={"Login Image"}
-          src={
-            "https://pbs.twimg.com/profile_images/1420026730803302411/-GShabO2_400x400.jpg"
-          }
-        />
-      </Flex>
-    </Stack>
+      </Box>
+      <Box flex={1}>
+        <Center h="100%" w="100%">
+          <Image
+            alt="Leo Achear"
+            src="https://pbs.twimg.com/profile_images/1420026730803302411/-GShabO2_400x400.jpg"
+            borderRadius="full"
+            boxSize="250px"
+          />
+        </Center>
+      </Box>
+    </Flex>
   );
 }

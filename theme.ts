@@ -11,4 +11,10 @@ export default extendTheme({
       },
     },
   },
+  components: {
+    Divider: {
+      borderColor: "red.200",
+      //opacity: 1,
+    },
+  },
 });

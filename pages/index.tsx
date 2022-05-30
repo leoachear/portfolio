@@ -6,6 +6,7 @@ import api from "../project/api";
 import {
   Box,
   Button,
+  Divider,
   Grid,
   Heading,
   Image,
@@ -24,16 +25,25 @@ const IndexRoute: React.FC<Props> = ({ projects }) => {
   return (
     <>
       {/* //----------- hero section */}
-      <Box p="6">
+      <Box p={8}>
         <Hero></Hero>
       </Box>
       {/* //----------- end hero section */}
       {/* //----------- projects section */}
-      <Box p="6">
+      <Box p={8}>
+        <Divider
+          backgroundColor="primary.500"
+          width="64px"
+          height="6px"
+          borderRadius="10px"
+          mt={8}
+          mb={4}
+        />
         <Heading as="h2">Projects</Heading>
         <Grid
           templateColumns="repeat(auto-fill, minmax(360px, 1fr))"
           gridGap="6"
+          p={20}
         >
           {projects.map((project) => {
             return (
